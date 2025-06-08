@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC36E009-D985-4574-8C23-FE5915F7DB4C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModbusTCP</RootNamespace>
+    <AssemblyName>ModbusTCP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATDriverInterface">
+      <HintPath>C:\Program Files\ATPro\ATDriverServer\ATDriverInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Address.cs" />
+    <Compile Include="Modbus\ModbusTCPClient.cs" />
+    <Compile Include="Modbus\ModbusSocket.cs" />
+    <Compile Include="Reader\BlockReader.cs" />
+    <Compile Include="ClientAdapter.cs" />
+    <Compile Include="Common\DataType.cs" />
+    <Compile Include="Reader\DeviceReader.cs" />
+    <Compile Include="DeviceSettings.cs" />
+    <Compile Include="Modbus\ModbusArea.cs" />
+    <Compile Include="ATDriver.cs" />
+    <Compile Include="Common\AccessRight.cs" />
+    <Compile Include="Designer\ctlChannelAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Designer\ctlChannelAddress.designer.cs">
+      <DependentUpon>ctlChannelAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ctlDeviceDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Designer\ctlDeviceDesign.designer.cs">
+      <DependentUpon>ctlDeviceDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ctlTagDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Designer\ctlTagDesign.designer.cs">
+      <DependentUpon>ctlTagDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\OrderBy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Modbus\ModbusConstants.cs" />
+    <Compile Include="Common\Converter.cs" />
+    <Compile Include="Common\Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Designer\ctlChannelAddress.resx">
+      <DependentUpon>ctlChannelAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\ctlDeviceDesign.resx">
+      <DependentUpon>ctlDeviceDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer\ctlTagDesign.resx">
+      <DependentUpon>ctlTagDesign.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
