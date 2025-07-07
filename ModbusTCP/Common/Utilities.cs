@@ -21,7 +21,7 @@ namespace ModbusTCP
         {
             return Regex.IsMatch(tagAddress, AddressPattern);
         }
-    }
+    } 
 
     public static class TagExtensions
     {
